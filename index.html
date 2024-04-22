@@ -10,12 +10,15 @@
             margin: 20px auto;
         }
 
-        .todolist {
-            height: 400px;
-            width: 600px;
-            background-color: bisque;
-            margin: 20px auto;
+        .todolists {
+            width: 500px;
+            height: 500px;
+            background-color: #7fffd4;
+            margin: 10px auto;
             border-radius: 20px;
+            font-size: 20px;
+            overflow-y: scroll;
+            box-shadow: 0 0 20px 1px #6c6b6b;
         }
 
         .btn {
@@ -27,12 +30,16 @@
         #items {
             margin-right: 10px;
             border-radius: 20px;
-            width: 500px;
+            width: 400px;
             padding: 5px 10px;
-            font-size: 20px;
+            font-size: 20px;.
+            border:none;
+            border: 5px solid rgb(18, 171, 145);
         }
 
         .input {
+            margin-top: 20px;
+            align-items: center;
             justify-content: center;
             display: flex;
         }
@@ -40,32 +47,50 @@
         .inrement-img {
             height: 35px;
         }
+
+        .todo {
+          margin: 20px 10px;
+            background-color: #54daad;
+            border-radius: 20px;
+            padding: 10px;
+            border: 1px solid black;
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="todolist">
+    <div class="todolists" id="lists-container">
+       
 
     </div>
 
     <div class="input">
-        <input type="text" id="items">
+        <input type="text" id="items" placeholder="Enter Task">
+
         <button class="btn" onclick="add()">
             <img src="./plus.png" class="inrement-img" alt="plus">
         </button>
     </div>
     <script>
         const todolist = []
-        
+
         function add() {
             const todoitem = document.getElementById("items")
             todolist.push(todoitem.value)
-            show();
+            todoitem.value = ""
+
+            show() 
         }
+
         function show() {
-            console.log(number);
+            const list = document.getElementById("lists-container")
+            list.innerHTML = ""
+     
+        for (const item of todolist) {
+            list.innerHTML += `<div class="todo"> <input type="checkbox"> ${item}</div>` 
         }
+    }
     </script>
 </body>
 
