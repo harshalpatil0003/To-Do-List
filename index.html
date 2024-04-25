@@ -32,7 +32,7 @@
             border-radius: 20px;
             width: 400px;
             padding: 5px 10px;
-            font-size: 20px;.
+            font-size: 20px;
             border:none;
             border: 5px solid rgb(18, 171, 145);
         }
@@ -54,6 +54,18 @@
             border-radius: 20px;
             padding: 10px;
             border: 1px solid black;
+            cursor: pointer;
+        }
+        @media screen and (max-width: 768px){
+            .todolists {
+                width: 80%;
+            }
+            
+            #items {
+                width: 50%;
+                text-align: center;
+               margin: 0 auto;
+            }
         }
     </style>
 </head>
@@ -79,7 +91,7 @@
             const todoitem = document.getElementById("items")
             todolist.push(todoitem.value)
             todoitem.value = ""
-
+            localStorage.setItem("todolist", JSON.stringify(todolist))
             show() 
         }
 
@@ -88,7 +100,7 @@
             list.innerHTML = ""
      
         for (const item of todolist) {
-            list.innerHTML += `<div class="todo"> <input type="checkbox"> ${item}</div>` 
+            list.innerHTML += `<div class="todo"> <input type="checkbox" > ${item}</div>` 
         }
     }
     </script>
